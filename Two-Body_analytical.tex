@@ -1,0 +1,183 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Two-Body Problem}
+\author{Hang Su}
+\date{May 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The two body problem is an isolated system of two particles which interact through a 
+central potential. For two particles with mass $m_1$ and $m_2$, the equations of motion is
+
+\begin{equation} \label{eqn: newt}
+    m_1 \ddot{r_1} = F_{21} ; \; m_2 \ddot{r_2} = F_{12}.
+\end{equation}
+
+In Newtonian gravity, the potentials are therefore 
+
+\begin{equation}
+    U_{12} = u_{21} = \frac{G m_1 m_2}{{|r_1 - r_2|}^2}.
+\end{equation}
+
+Since the 2 particles interact via a central potential, the total momentum is conserved. We consider
+the center of mass,
+
+\begin{equation}
+    R = \frac{m_1r_1 + m_2r_2}{M}
+\end{equation}
+
+where $M = m_1 + m_2$.
+
+The time derivative is therefore 
+
+\begin{equation}
+    V_{CM} = \frac{m_1v_1 + m_2v_2}{M}.
+\end{equation}
+
+Since our system is isolated, the net force and total acceleration is zero, thus $V_{CM}$ is a constant.
+The motion of the center of mass is then
+
+\begin{equation}
+    R(t) = V_{CM} t.
+\end{equation} 
+
+We define the vector of distance between the particles:
+\begin{equation}
+    r = r_1 - r_2.
+\end{equation}
+Thus, 
+\begin{equation}
+    r_1 = R + \frac{m_2 r}{m_1 + m_2}; \; r_2 = R - \frac{m_1 r}{m_1 + m_2}.
+\end{equation}
+
+Since we already know $R$, our problem reduces to finding $r$.
+
+If we multiply the masses to \ref{eqn:newt}, we get 
+\begin{equation}
+    m_1 m_2 \ddot{r_1} = m_2F_{21}; \; m_1m_2 \ddot{r_2} = m_1F_{12}.
+\end{equation}
+
+Subtract the second from the first equation and simplify, we get
+
+\begin{equation}
+    \frac{m_1m_2}{m_2 + m_1} \ddot{r} = F_{21}
+\end{equation}
+
+The force derived from the central potential only depends on distance between the 2 particles.
+
+\begin{equation}
+    F_{21} = - \frac{\partial}{\partial r_1} U_{12} (|r_1 - r_2|) =  \nabla U_{12}
+\end{equation}
+
+From above, we can summarize them as 
+
+\begin{equation}
+    m_\ast \ddot{r} = - \frac{\partial}{\partial r} U(|r|) = F(r)
+\end{equation}
+
+where 
+\begin{equation}
+    m_\ast = \frac{m_1m_2}{m_1 + m_2}
+\end{equation}
+ is the reduced mass.
+
+\section{Conservation of Angular Momentum}
+
+In this section, we will rewrite the system above in terms of the angular momentum.
+
+\begin{equation}
+    L = m_\ast r \times V ;\; V = \dot{r}.
+\end{equation}
+
+Since $F$ is in the $r$ direction, the torque has to be $0$, and the angular momentum must be constant.
+
+\begin{equation}
+    \frac{d}{dt} L = 0
+\end{equation}
+
+Next, we use the \emph{scalar triple product identity},
+\begin{equation}
+    a \cdot (b\times c) = b \cdot (c\times a) = c \cdot (a\times b)
+\end{equation}
+
+and apply it to the angular momentum, we get
+\begin{equation}
+    r\cdot L = m_\ast r \cdot (r\times V) = m_\ast V \cdot (r\times r) = 0.
+\end{equation}
+
+Hence $r$ is always \emph{perpendicular} to angular momentum $L$.
+
+Because the angular momentum is constant, there must be a fixed vector of which $r$ is perpendicular to in space.
+Since the position vector is always perpendicular to a certain direction in space, we can reduce the probelm into a 
+2D plane in polar coordinates where
+\begin{equation}
+    r_x = r \cos{\theta}; \; r_y = r\sin{\theta}.
+\end{equation}
+
+We choose the $x---y$ plane for the particles to be on in accordance to conventions, and the angular momentum
+is oriented to the $z$ direction. The velocity in $\theta$ direction is always positive, therefore the 
+particles always rotates around the center of our coordinate system in the same direction.
+
+\begin{equation}
+    \dot{\theta} = \frac{|L|}{m_\ast r^2}
+\end{equation}
+
+\section{Conservation of Energy}
+To begin with, we know that Energy is the sum of kinetic and potential energies.
+\begin{equation}
+    E = \frac{1}{2}m_\ast v^2 + U(r)
+\end{equation}
+
+In polar coordinates, the velocity is
+\begin{equation}
+    v^2 = \dot{x}^2 + \dot{y}^2 = \dot{r}^2 + r^2 \dot{\theta} ^2.
+\end{equation}
+
+The energy conservation becomes
+\begin{equation}
+    E = \frac{1}{2} m_\ast \dot{r}^2 + \frac{1}{2} m_\ast r^2 \dot{\theta}^2 + U(r).
+\end{equation}
+
+\section{Solutions for Two-Body Problem}
+
+Since $\dot{theta} = \frac{L}{mr^2}$, we get the acceleration in $\theta$ direction
+\begin{equation}
+    \ddot{\theta} = - \frac{\dot{r} L}{mr^3} = -\frac{2\dot{r}\dot{\theta}}{r}.
+\end{equation}
+
+Acceleration in $r$ direction is
+\begin{equation}
+    \ddot{r} = \frac{F}{m} = r \dot{\theta}^2 - \frac{Gm}{r^2}
+\end{equation}
+
+because $\ddot{GM/r^2}$ and $r = \frac{x}{\cos{\theta}}$.
+
+Our problem then becomes a system of two second-order ordinary differential equations stated above.
+To numerically solve it using RK-4,
+
+we have to use 4 first-order differential equations such as 
+
+\begin{equation}
+    V_r = \dot{r}
+\end{equation}
+
+\begin{equation}
+    V_\theta = \dot{\theta}
+\end{equation}
+
+\begin{equation}
+    \dot{V_r} = r V_\theta ^2 - \frac{Gm}{r^2}
+\end{equation}
+
+\begin{equation}
+    \dot{V_\theta} = - \frac{V_r L}{mr^3} 
+\end{equation}
+
+
+
+\end{document}
