@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1685026576 "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf" "Two-Body_analytical" 1685026577
+["pdflatex"] 1685026576 "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf" "Two-Body_analytical" 1685026608
   "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.aux" 1685026577 509 c79881399c9d531dd051b33da46f43cf ""
-  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" 1685026576 5043 88a7cc043eb2cb1715b21dcef9ce7d44 ""
+  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" 1685026608 5043 88a7cc043eb2cb1715b21dcef9ce7d44 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -45,10 +45,10 @@
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1636468127 2724738 04edf4240b2488a83ebe6a8d7d2b75e7 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "Two-Body_analytical.aux" 1685026577 509 c79881399c9d531dd051b33da46f43cf "pdflatex"
-  "Two-Body_analytical.tex" 1685026576 5043 88a7cc043eb2cb1715b21dcef9ce7d44 ""
+  "Two-Body_analytical.tex" 1685026608 5043 88a7cc043eb2cb1715b21dcef9ce7d44 ""
   (generated)
-  "Two-Body_analytical.pdf"
-  "Two-Body_analytical.log"
-  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf"
   "Two-Body_analytical.aux"
+  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf"
+  "Two-Body_analytical.log"
   "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.log"
+  "Two-Body_analytical.pdf"
