@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
 
 \title{Two-Body Problem}
 \author{Hang Su}
@@ -14,14 +15,14 @@
 The two body problem is an isolated system of two particles which interact through a 
 central potential. For two particles with mass $m_1$ and $m_2$, the equations of motion is
 
-\begin{equation} \label{eqn: newt}
+\begin{equation} \label{eqn:newt}
     m_1 \ddot{r_1} = F_{21} ; \; m_2 \ddot{r_2} = F_{12}.
 \end{equation}
 
 In Newtonian gravity, the potentials are therefore 
 
 \begin{equation}
-    U_{12} = u_{21} = \frac{G m_1 m_2}{{|r_1 - r_2|}^2}.
+    U_{12} = U_{21} = \frac{G m_1 m_2}{|r_1 - r_2|}.
 \end{equation}
 
 Since the 2 particles interact via a central potential, the total momentum is conserved. We consider
@@ -57,7 +58,7 @@ Thus,
 
 Since we already know $R$, our problem reduces to finding $r$.
 
-If we multiply the masses to \ref{eqn:newt}, we get 
+If we multiply the masses to eq. \ref{eqn:newt}, we get 
 \begin{equation}
     m_1 m_2 \ddot{r_1} = m_2F_{21}; \; m_1m_2 \ddot{r_2} = m_1F_{12}.
 \end{equation}
@@ -119,7 +120,7 @@ Since the position vector is always perpendicular to a certain direction in spac
     r_x = r \cos{\theta}; \; r_y = r\sin{\theta}.
 \end{equation}
 
-We choose the $x---y$ plane for the particles to be on in accordance to conventions, and the angular momentum
+We choose the $x$ - $y$ plane for the particles to be on in accordance to conventions, and the angular momentum
 is oriented to the $z$ direction. The velocity in $\theta$ direction is always positive, therefore the 
 particles always rotates around the center of our coordinate system in the same direction.
 
@@ -143,7 +144,45 @@ The energy conservation becomes
     E = \frac{1}{2} m_\ast \dot{r}^2 + \frac{1}{2} m_\ast r^2 \dot{\theta}^2 + U(r).
 \end{equation}
 
-\section{Solutions for Two-Body Problem}
+We call part of this equation the \textbf{effective potential energy}.
+\begin{equation}
+    U_{\textrm{eff}}(r) = \frac{L^2}{2 m r^2} + U(r)
+\end{equation}
+
+Since the angular momentum is constant, in spherical coordinates, 
+\begin{equation}
+    L = mr^2\dot{\phi} = const; \; \dot{\phi} = \frac{L}{mr^2}
+\end{equation}
+Here the $\phi$ in spherical coordinates is equivalent to $\theta$ in polar coordinates. 
+
+\section{Solutions for Two-Body Problem (Analytical)}
+
+We have derived that energy of the system is constant
+\begin{eqnarray}
+    && E = \frac{1}{2}m (\dot{r}^2 + r^2 \dot{\phi}^2) + U(r) = const. \nonumber \\
+    && \dot{r} = \frac{dr}{dt} = \sqrt{\frac{2}{m} (E - U(r))\frac{L^2}{m^2 r^2}} \nonumber \\
+    && \int \frac{dr}{\sqrt{\frac{2}{m}(E - U(r)) - \frac{L^2}{m^2r^2}}} = \int dt = t .\nonumber
+\end{eqnarray}
+
+
+We want to find trajectory $r(\phi)$.
+\begin{eqnarray}
+    && \dot{r} = \frac{dr}{dt} = \frac{dr}{d\phi}\frac{d\phi}{dt} = \frac{dr}{d\phi}\frac{L}{mr^2} \nonumber \\
+    && E = \frac{1}{2} m \left( \frac{dr}{d\phi}\right)^2 \left( \frac{L}{mr^2}\right)^2 + \frac{L^2}{2mr^2} + U(r) \nonumber \\
+    && E = \frac{L}{2m} \left(\frac{dr}{r^2 d\phi}\right)^2 + \frac{L^2}{2mr^2} + U(r) 
+\end{eqnarray}
+
+We introduce $b = \frac{1}{r}$ and $db = \frac{-dr}{r^2}$. The equation of energy thus becomes
+\begin{equation}
+    E = \frac{L^2}{2m} \left[\left(\frac{db}{d\phi}\right)^2 + b^2\right] + U(\frac{1}{b}),
+\end{equation}
+
+where if we find $r(\phi)$, and $r(\phi) = \frac{1}{b(\phi)}$, we can find $\phi (t)$. 
+
+
+
+
+\section{Solutions for Two-Body Problem (Numerical)}
 
 Since $\dot{theta} = \frac{L}{mr^2}$, we get the acceleration in $\theta$ direction
 \begin{equation}

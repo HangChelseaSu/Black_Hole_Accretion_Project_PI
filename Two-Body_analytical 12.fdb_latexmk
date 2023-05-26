@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1685136206 "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf" "Two-Body_analytical" 1685136206
-  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.aux" 1685136206 651 8f15a29676ecfbdc4fc934bbec5ccab1 ""
-  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" 1685136206 6619 e901219f0f1247a121a082e06285b288 ""
+["pdflatex"] 1685135783 "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf" "Two-Body_analytical" 1685135783
+  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.aux" 1685135783 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" 1685135782 6444 076a62bdc307e8b9362def4e3380f318 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -61,11 +61,11 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1636468127 2724738 04edf4240b2488a83ebe6a8d7d2b75e7 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "Two-Body_analytical.aux" 1685136206 651 8f15a29676ecfbdc4fc934bbec5ccab1 "pdflatex"
-  "Two-Body_analytical.tex" 1685136206 6619 e901219f0f1247a121a082e06285b288 ""
+  "Two-Body_analytical.aux" 0 -1 0 "pdflatex"
+  "Two-Body_analytical.tex" 1685135782 6444 076a62bdc307e8b9362def4e3380f318 ""
   (generated)
-  "Two-Body_analytical.pdf"
   "Two-Body_analytical.log"
-  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf"
   "Two-Body_analytical.aux"
+  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf"
+  "Two-Body_analytical.pdf"
   "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.log"
