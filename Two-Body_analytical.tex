@@ -166,7 +166,7 @@ We have derived that energy of the system is constant
 
 
 We want to find trajectory $r(\phi)$.
-\begin{eqnarray}
+\begin{eqnarray} \label{eqn:E}
     && \dot{r} = \frac{dr}{dt} = \frac{dr}{d\phi}\frac{d\phi}{dt} = \frac{dr}{d\phi}\frac{L}{mr^2} \nonumber \\
     && E = \frac{1}{2} m \left( \frac{dr}{d\phi}\right)^2 \left( \frac{L}{mr^2}\right)^2 + \frac{L^2}{2mr^2} + U(r) \nonumber \\
     && E = \frac{L}{2m} \left(\frac{dr}{r^2 d\phi}\right)^2 + \frac{L^2}{2mr^2} + U(r) 
@@ -178,9 +178,90 @@ We introduce $b = \frac{1}{r}$ and $db = \frac{-dr}{r^2}$. The equation of energ
 \end{equation}
 
 where if we find $r(\phi)$, and $r(\phi) = \frac{1}{b(\phi)}$, we can find $\phi (t)$. 
+We can do this by integrating $\int \dot{\phi} dt = \phi (t)$ where $\dot{\phi} = \frac{L}{mr^2}$.
+We then take the derivative of $E$ with respect to $\phi$.
 
+\begin{equation}
+    \frac{L^2}{2m} \left[2 \frac{db}{d\phi} \frac{d^2b}{d\phi^2} + 2b \frac{db}{d\phi}\right] + \frac{dU}{db} \frac{db}{d\phi} = 0.
+\end{equation}
+Divide both sides by $\frac{db}{d\phi}$, assuming $b\neq const.$ and $\frac{db}{d\phi} \neq 0$, we get
+\begin{equation}
+    \frac{L^2}{m} \left(\frac{d^2b}{d\phi^2} + b\right) = -\frac{du}{db}.
+\end{equation}
+ Here we obtain \textbf{Binet's equation for central field}.
 
+ \begin{equation}
+    \frac{d^2 b}{d\phi^2} + b = - \frac{m}{L^2}\frac{dU}{db}
+\end{equation}
 
+\subsection{Kepler Motion}
+
+In a gravitationally bounded two-body system, we take potential 
+
+$U(r) = -\frac{Gm_\ast m}{r} = - \frac{\alpha}{r}$ where $\alpha > 0$ and $\alpha = Gm_\ast m = const$.
+
+Using \textbf{Binet's equation} and $U = -\alpha b$ where $\frac{dU}{db} = -\alpha$,
+\begin{equation}
+    \frac{d^2 b}{d\phi^2} +b = \frac{m\alpha}{L^2} = \frac{1}{p}; \; p = \frac{L^2}{m\alpha}; \; b = \frac{1+e \cos{\phi}}{p}.
+\end{equation}
+by the definition of \textbf{orbital eccentricity} $e$.
+Since $r = \frac{1}{b}$, we get $r = \frac{p}{1 + e\cos{\phi}}$.
+
+The minimum of $r$ is limited by the cosine function, hence,
+\begin{equation}
+    r_{\textit{min}} = \frac{p}{1+e}; \; r_{\textit{max}} = \frac{p}{1-e}.
+\end{equation}
+
+If we define $a$ as the semi-major axis of the elliptical orbit, we get
+\begin{equation}
+    \frac{p}{1+e} + \frac{p}{1-e} = 2a; \; p = a(1-e)^2.
+\end{equation}
+
+\subsection{Energy}
+The constant $p$ depends on the orbial eccentricity $e$ and angular momentum $L$. In this section, we show that the energy conservation
+can depend on parameter semi-major axis $a$.
+
+Using eqn. \ref{eqn:E} and results obtained above, we can further write energy as 
+\begin{equation}
+    E = \frac{L^2 (1+e \cos{\phi})^4}{2mp^4} \left[\frac{p^2 e^2 \sin^2{\phi}}{(1+e\cos{\phi})^4}
+    + \frac{p^2}{(1+e\cos{\phi})^2}\right] - \frac{\alpha (1+e\cos{\phi})}{p}.
+\end{equation}
+
+simplify, we obtain 
+\begin{equation}
+    E = \frac{(e^2 -1)m\alpha^2}{2a (1-e^2)m\alpha} = -\frac{\alpha}{2a}.
+\end{equation}
+
+\subsection{Summary}
+From the two conserved quantities, namely energy $E$ and angular momentum $L$, we obtain a solution to the Binet's equation of orbital motion 
+for $r$ as a function of $\phi$.
+\begin{equation}
+    r = \frac{p}{1+e \cos{\phi}}
+\end{equation}
+where $p = \frac{L^2}{m\alpha}$ and $E = -\frac{\alpha}{2a}$. Hence different $L$ and $E$ will give rise to different shapes of orbits.
+
+Using Newtonian gravity where the kinetic energy and gravitational potential are equal to each other,
+\begin{equation}
+    \frac{1}{2} m v_e^2 = \frac{GmM}{r},
+\end{equation}
+we obtain the equation for escape velocity of a system.
+
+\begin{equation}
+    v_e = \sqrt{\frac{2Gm}{r}}.
+\end{equation}
+
+In case of gravitationally bounded objects, the total energy is equal to kinetic energy of the object orbiting the total mass
+minus the potential energy.
+\begin{equation}
+    E_{\textit{tot}} = \frac{1}{2}mv^2 - \frac{GMm}{r}.
+\end{equation}
+
+\begin{enumerate}
+    \item If $E <0 $, the orbit is a bounded elliptical orbit.
+    \item If $E = 0$, the orbit is parabolic where it is marginally unbounded. It comes in from infinitely far away and orbit through
+    and heads back to infinitely away.
+    \item If $E > 0$, the orbit is hyperbolic where the object does not orbit.
+\end{enumerate}
 
 \section{Solutions for Two-Body Problem (Numerical)}
 

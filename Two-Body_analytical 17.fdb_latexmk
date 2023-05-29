@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1685369622 "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf" "Two-Body_analytical" 1685369623
-  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.aux" 1685369623 982 270ac750ad61f3a49773a228c5c38f7c ""
-  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" 1685369622 10126 a6627844d461592fa24f3ba5920476dc ""
+["pdflatex"] 1685316373 "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf" "Two-Body_analytical" 1685316374
+  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.aux" 1685316374 757 79305fe2324805412e72458b07199ecd ""
+  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.tex" 1685316373 8039 5d86b6db23d4a880d96d3eb071196791 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -64,11 +64,11 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1636468127 2724738 04edf4240b2488a83ebe6a8d7d2b75e7 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "Two-Body_analytical.aux" 1685369623 982 270ac750ad61f3a49773a228c5c38f7c "pdflatex"
-  "Two-Body_analytical.tex" 1685369622 10126 a6627844d461592fa24f3ba5920476dc ""
+  "Two-Body_analytical.aux" 1685316374 757 79305fe2324805412e72458b07199ecd "pdflatex"
+  "Two-Body_analytical.tex" 1685316373 8039 5d86b6db23d4a880d96d3eb071196791 ""
   (generated)
   "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.pdf"
-  "Two-Body_analytical.pdf"
-  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.log"
   "Two-Body_analytical.log"
+  "/Users/chelseasu/Documents/Black_Hole_Accretion_Project_PI/Two-Body_analytical.log"
+  "Two-Body_analytical.pdf"
   "Two-Body_analytical.aux"
