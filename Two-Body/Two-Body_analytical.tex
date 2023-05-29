@@ -263,6 +263,46 @@ minus the potential energy.
     \item If $E > 0$, the orbit is hyperbolic where the object does not orbit.
 \end{enumerate}
 
+\subsubsection{Energy \& Momentum as a function of $a$ and $e$}
+From above results, we can write the energy and momentum in terms of semi-major axis and eccentricity.
+\begin{equation}
+    E = -\frac{\alpha}{2a}
+\end{equation}
+
+\begin{equation}
+    L = (1-e) \sqrt{am\alpha}
+\end{equation}
+
+In terms of the two masses $m_1$ and $m_2$,
+\begin{equation}
+    E = -\frac{Gm_1 m_2}{a}
+\end{equation}
+\begin{equation}
+    L = (1-e) m_1 m_2 \sqrt{\frac{Ga}{m_1+m_2}}
+\end{equation}
+
+\subsubsection{$a$ and $e$ as a function of energy \& momentum}
+We can hence do the inverse of above equations to show that eccentricity and semi-major axis can be written as a function of energy and angular momentum.
+
+\begin{equation}
+    a = - \frac{\alpha}{2E}
+\end{equation}
+\begin{equation}
+    e = 1- \frac{L}{\alpha}\sqrt{-\frac{2E}{m}}
+\end{equation}
+
+In terms of $m_1$ and $m_2$,
+
+\begin{equation}
+    a = - \frac{Gm_1 m_2}{2E}
+\end{equation}
+\begin{equation}
+    e = 1- \frac{L}{Gm_1 m_2} \sqrt{- \frac{2E}{m_2} - \frac{2E}{m_1}}
+\end{equation}
+
+
+
+
 \section{Solutions for Two-Body Problem (Numerical)}
 
 Since $\dot{theta} = \frac{L}{mr^2}$, we get the acceleration in $\theta$ direction
