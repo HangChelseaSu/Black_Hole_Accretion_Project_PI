@@ -1,4 +1,4 @@
-Two-Body/.log
-Two-Body/.aux
-Two-Body/.fdb_latexmk
-Two-Body/.fls
+*.log
+*.aux
+*.fdb_latexmk
+*.fls
