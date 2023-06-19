@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+
+\title{DISCO Summary}
+\author{Hang Su}
+\date{June 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Solutions to the Disco Primer}
+Fluids are defined by spacetime dependent quantites: mass density $\rho$, velocity $v$, and pressure $P$.
+In case of the accretion disks of a black hole, we have $5$ real variables: $\rho$, $P$, and $3$
+components of $v$. We also have $5$ equations for the $5$ variables along with sonservation laws: 
+\begin{enumerate}
+    \item Conservation of particle number
+    \item Conservation of momentum
+    \item Conservation of energy.
+\end{enumerate}
+
+These conservation laws give us the equations needed to solve: the Continuity Equation, Euler Equations,
+and the Energy Equation.
+\begin{eqnarray}
+    && \partial_t \rho + \nabla (\cdot \rho v) = 0 \nonumber \\
+    && \partial_t (\rho v) + \nabla \cdot (\rho vv + P) =  \rho g \nonumber \\
+    && \partial _t (\frac{1}{2} \rho v^2 + e) + \nabla \cdot \left[\left(\frac{1}{2
+    } \rho v^2 + e + P \right) v \right] = \rho v \cdot g - \dot q
+\end{eqnarray}
+
+The goal for DISCO code is to solve these equations for a hydrodynamic system. Below I have documented
+the process of which I preliminarily solve these equations using analytical methods to give rise to 
+a simple disk model. 
+
+\subsection{Steady and axissymmetric}
+
+We assume the disk model to be long-lived and axisymmetric. That is, the disk will look the same
+from any angle at any moment of time. Thus, we set derivatives of time and angle $\phi$ in cylindrical coordinates
+to $0$. Here we will have four ordinary differential equations:
+
+\begin{eqnarray}
+    && \textit{Continuity: } \frac{1}{r} \partial_r (r \Sigma V_r) = 0 \nonumber \\
+    && \textit{Radial Momentum: } \frac{1}{r} \partial_r \left(r \Sigma 
+    V_r^2 + r \Pi - 2r \Sigma \nu \left(\frac{2}{3} \partial_r V_r - 
+    \frac{1}{3} \partial_\phi \Omega\right)\right) = 0 \nonumber \\
+    && \textit{Angular Momentum: } \frac{1}{r} \partial_r \left(r^3 
+    \Sigma V_r \Omega - 2 r \Sigma \nu \left(\frac{1}{2} r^2 \partial_r \Omega\right)\right)
+    = 0 \nonumber \\
+    && \textit{Energy: } \frac{1}{r} \partial_r \left(r \left(\frac{1}{2} \Sigma v^2
+    + \Sigma \epsilon + \Pi\right) V_r - 2r\Sigma \nu(\sigma \cdot v ) r\right)
+    = \Sigma v\cdot g - \dot q
+\end{eqnarray}
+
+where $\nu$ is viscosity and $\dot q$ is a cooling term, $\Omega $ is angular velocity, 
+and
+\begin{eqnarray}
+    && v \cdot g = -\frac{GM}{r^2} \cdot v \nonumber \\
+    && \Sigma = \int \rho dz.
+\end{eqnarray} 
+
+\subsection{The razor thin limit}
+We are assuming that the disk is razor thin and inviscid. Here we take the approximations of
+$H \simeq 0$ and $\nu = 0$. We also set the sounds speed $c_s = 0$, as well as $\Pi$ and $\epsilon$.
+Here we find the solutions of  $V_r (r)$ and $\Omega (r)$.
+
+We can do so by taking the insides of the first and third equation as constants, and solve for the other two
+equations using results obtained from it. Eventually, we get one of the solutions similar to Saturn's rings: 
+$V_r = 0$ and 
+\begin{equation}
+    \Omega = \sqrt{\frac{GM}{r^3}}.
+\end{equation}
+
+As we take the raidal velocity as $0$, we are assuming that the gas stays in a steady orbit without moving inward or
+outward. This makes sense in our razor thin and axisymmetric approximation but it is unrealistic since accretion does not
+occur with $V_r = 0$.
+
+\subsection{The Accretion Rate and Torque}
+We define the accretion rate $\dot M$ as the rate at which matter passes a praticular radius mobing
+toward the central object: $\dot M = -2 \pi r \Sigma v_r$. From the continuity eqaution from step 1, we can derive 
+\begin{equation}
+    \partial_r (r\Sigma V_r) = 0
+\end{equation}
+and $\dot M = -2 \pi r \Sigma V_r = \textit{constant}$. This means that for a disk that is
+steady and axisymmetric, the accretion rate is constant across all radii.
+Later, we will use the expression of $V_r$ to solve for other quantities.
+\begin{equation}
+    V_r = \frac{\dot M}{-2\pi r \Sigma}
+\end{equation}
+
+Similarly, we define the torque through the disk $\dot J$ as the rate at which the central object accretes
+angular momentum, which is equal to $2\pi$ times the angular momentum flux. 
+From the angular momentum equation from step 1, we have
+\begin{equation}
+    \frac{1}{r} \partial _r (r^3 \Sigma V_r \Omega - r^3 \Sigma \nu \partial_r \Omega) = \partial_r \dot J = 0. 
+\end{equation}
+Using $V_r$ from above, we get 
+\begin{equation}
+    \dot J = \dot M r^2 \Omega + 2\pi r^3 \Sigma \nu \partial_r \Omega.
+\end{equation}
+Rearrange, we have an expression for $\Sigma$
+\begin{equation}
+    \Sigma = \frac{\dot J - \dot M r^2 \Omega}{2\pi r^3 \nu \partial_r \Omega}.
+\end{equation}
+
+\subsection{An accretion disk}
+
+So far, we have two algebraic equations involving $\dot M$ and $\dot J$ and the radial momentum and energy equations. 
+It is time to solve the final radial momentum equation assuming the disk is thin $H \ll r$ abd the radial velocity
+subsonic $|v_r| < c_s$. The centripital acceleration term should balance the term with the largest other term, in this case, 
+$r\Sigma \frac{GM}{r^2}$. This confirms the expression for angular velocity $\Omega = \sqrt{\frac{GM}{r^3}}$.
+
+After simplifying, we obtain the final solution for $\Sigma$
+\begin{equation}
+    \Sigma = \frac{-1}{3\pi \nu} \left(\frac{\dot J}{\sqrt{GMr}} - \dot M\right),
+\end{equation}
+
+and for $V_r$ 
+\begin{equation}
+    V_r = -\frac{3\nu}{2r}.
+\end{equation}
+
+From here, we have obtained a series of constants and expressions that will help the DISCO code solve the hydrodynamic equations.
+
+We define function $f$:
+\begin{equation}
+    f = 1 - \frac{\dot J}{ \dot M \sqrt{GMr}}.
+\end{equation}
+
+Finally, some expressions in terms of $f$:
+\begin{eqnarray}
+    && \Sigma = \frac{\dot M f }{ 3 \pi \nu} \nonumber \\
+    && V_r = \frac{3\nu}{-2rf} \nonumber \\
+    && \Omega = \sqrt{\frac{GM}{r^3}}.
+\end{eqnarray}
+
+
+\section{Instructions on using the DISCO code}
+
+Now that we have analytically solved solutions of a simple disk model, it is time that we put these varaibles into the 
+disco code. There are many tempates for different simulations performed in disco, but in our case we only focus on
+thin accretion disk for singular or binary black holes. 
+
+In order to run the code, we need to provide initial conditions and the instructions for the computer to run the simulations.
+I have listed below some of the useful tips for this project running on disco.
+
+The \emph{Makefile\_opt\.in} file contains the initial condition file we will use. We can specify the file name after
+
+\begin{verbatim}
+    INITIAL = {FILENAME}.
+\end{verbatim}
+
+The file we are putting into the initial section of \emph{Makefile\_opt\.in} is stored in the \emph{initial} directory. 
+In this \emph{\.c} file, we can specify the disk model we are using. We can load quantities such as viscocity and adiabatic index into the file using
+\emph{setICparams()} function. This is the place we can put the simple disk model we derived above into the simulation.
+Specifically, these formulas are in this file:
+
+\begin{eqnarray}
+    && f = 1 - \frac{\dot J}{ \dot M \sqrt{GMr}} \nonumber \\
+    && \Sigma = \frac{\dot M f }{ 3 \pi \nu} \nonumber \\
+    && V_r = \frac{3\nu}{-2rf} \nonumber \\
+    && \Omega = \sqrt{\frac{GM}{r^3}}.
+\end{eqnarray}
+
+
+
+If we want to have a circumbinary black hole simulation, we can add mass profiles in the \emph{planet} directory. 
+
+
+
+In the file \emph{in\.par}, we can specify parameters such as the periods of rotation, time step, grid dimensions, hydro parameters etc.
+In our practice so far, we only run a small number of checkpoints and observe the simulation through \emph{vdisco}, a visual
+platform of which the checkpoints of the simulation can be vidualized. 
+
+In vdisco, the numbers on your keyboard switches among the variables:
+\begin{enumerate}
+    \item [1] Surface density ($\rho$ or $\Sigma$ in derivations above)
+    \item [2] Pressure $P$
+    \item [3] Radial velocity $V_r$
+    \item [4] Angular velocity $\Omega$
+    \item [5] Vertical velocity $V_z$ ($0$ most of the times)
+    \item [6] Passive scalar for visualization 
+\end{enumerate}
+
+The checkpoints can be scrolled through pressing [ and ] keys. 
+
+
+
+\end{document}
