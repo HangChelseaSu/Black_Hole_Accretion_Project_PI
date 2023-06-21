@@ -144,15 +144,15 @@ thin accretion disk for singular or binary black holes.
 In order to run the code, we need to provide initial conditions and the instructions for the computer to run the simulations.
 I have listed below some of the useful tips for this project running on disco.
 
-The \emph{Makefile\_opt\.in} file contains the initial condition file we will use. We can specify the file name after
+The \texttt{Makefile\_opt.in} file contains the initial condition file we will use. We can specify the file name after
 
 \begin{verbatim}
     INITIAL = {FILENAME}.
 \end{verbatim}
 
-The file we are putting into the initial section of \emph{Makefile\_opt\.in} is stored in the \emph{initial} directory. 
-In this \emph{\.c} file, we can specify the disk model we are using. We can load quantities such as viscocity and adiabatic index into the file using
-\emph{setICparams()} function. This is the place we can put the simple disk model we derived above into the simulation.
+The file we are putting into the initial section of texttt{Makefile\_opt\.in} is stored in the texttt{initial} directory. 
+In this texttt{\.c} file, we can specify the disk model we are using. We can load quantities such as viscocity and adiabatic index into the file using
+texttt{setICparams()} function. This is the place we can put the simple disk model we derived above into the simulation.
 Specifically, these formulas are in this file:
 
 \begin{eqnarray}
@@ -164,12 +164,12 @@ Specifically, these formulas are in this file:
 
 
 
-If we want to have a circumbinary black hole simulation, we can add mass profiles in the \emph{planet} directory. 
+If we want to have a circumbinary black hole simulation, we can add mass profiles in the texttt{planet} directory. 
 
 
 
-In the file \emph{in\.par}, we can specify parameters such as the periods of rotation, time step, grid dimensions, hydro parameters etc.
-In our practice so far, we only run a small number of checkpoints and observe the simulation through \emph{vdisco}, a visual
+In the file texttt{in\.par}, we can specify parameters such as the periods of rotation, time step, grid dimensions, hydro parameters etc.
+In our practice so far, we only run a small number of checkpoints and observe the simulation through texttt{vdisco}, a visual
 platform of which the checkpoints of the simulation can be vidualized. 
 
 In vdisco, the numbers on your keyboard switches among the variables:
