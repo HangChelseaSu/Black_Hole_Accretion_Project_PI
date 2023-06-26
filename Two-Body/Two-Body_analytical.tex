@@ -302,6 +302,33 @@ In terms of $m_1$ and $m_2$,
 
 The above results limit the conserved energy to be negative to have a bounded elliptical orbit.
 
+\subsubsection{Time derivatives of $a$ and $e$}
+In the more realistic situations, the eccentricity and semi-major axis of the orbit can change over time. We can hence write the time derivatives of $a$ and $e$ as a function of individual masses, 
+angular momentum, and energy.
+
+\begin{equation}
+    \dot{a} = -\frac{G}{2} \left[\frac{\dot m_1 m_2 + m_1 \dot m_2}{E} - \frac{m_1m_2 \dot E}{E^2}\right]
+\end{equation}
+
+where $\dot E = \dot E_1 + \dot E_2$. The time derivative of energy is the sum of time derivatives of individual energies.
+
+For eccentricity,
+
+\begin{equation}
+    \begin{split}
+        \dot e
+        & = \frac{1}{G} \left[(m_1m_2)^{-3/2} J (-2E(m_1m_2))^{-1/2} (\dot E (m_1 + m_2) + E(\dot m_1 + \dot m_2)) \right] \\
+        & + \frac{1}{G} \left[\sqrt{-2E(m_1 + m_2)} \left[ J \cdot \frac{3}{2} (m_1m_2)^{-5/2} (\dot m_1 m_2 + \dot m_2 m_1) + \dot J (m_1m_2)^{-3/2}\right]\right]
+    \end{split}
+\end{equation}
+
+
+% \begin{equation} \label{eq1}
+%     \begin{split}
+%     \dot e & =  \frac{1}{G} \left[(m_1m_2)^{-3/2} J (-2E(m_1m_2))^{-1/2} (\dot E (m_1 + m_2) + E(\dot m_1 + \dot m_2))\\
+%      & = \frac{1}{2} \pi r^2
+%     \end{split}
+%     \end{equation}
 
 \section{Solutions for Two-Body Problem (Numerical)}
 
