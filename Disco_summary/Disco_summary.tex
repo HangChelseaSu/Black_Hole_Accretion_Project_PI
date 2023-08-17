@@ -182,8 +182,90 @@ In vdisco, the numbers on your keyboard switches among the variables:
     \item [6] Passive scalar for visualization 
 \end{enumerate}
 
-The checkpoints can be scrolled through pressing [ and ] keys. 
 
 
+\section{Results}
+
+There are two key points we focused on for our results. We investigated some of the properties of eccentricities of the orbits and their effects on the accretion disks, and 
+we looked at minidisks around individual black holes and their properties.
+
+\subsection{Eccentricities}
+
+BBHs with eccentric orbits have not been studied extensively. 
+The time evolution of the orbits and minidisks is chaotic and creates 
+overdensity regions that theoretical models do not predict. We have launched multiple eccentric 
+runs on the Symmetry cluster with Python analysis to see if there is a stable eccentricity point, 
+at which the eccentricity of the orbit stays in the same shape across a long time steps.
+ However, it is worth pointing out that for all eccentricities, the cavities
+ around the binary precess and eventually become eccentric.
+
+We generated 1 checkpoint per orbits and used it to calculate many aspects of the accretion disk. 
+As the orbit increases toward 1000 orbits, the surface density reaches a steady value since the gas becomes more uniform toward the bigger radii. 
+Radial velocity reaches zero due to the steady state of the disk, which means gas does not move inward or outward at larger radii.
+The mass accretion rate is chaotic near the center of the disk due to individual black hole's effects and the lump around the cavity, 
+but it reaches a steady value at larger radii at a constant value, which means the amount of matter being accreted throughout the radial coordinates
+is constant. The plot below shows the surface density, radial velocity, and mass accretion rate as a function of radius for the last 500 orbits averaged over time, where the eccentricity is 0.4.
+
+\begin{figure}[h]
+    \includegraphics[width=6cm]{output.png}
+    \centering
+    \end{figure}
+
+Additionally, we looked for a stable ecccentricity point for euqal mass black holes for about 1000 orbits. We found that the eccentricity is stable at 0.4, and the plot below shows the eccentricity as a function of time.
+Stable eccentrity point indicates that the shape of the eccentric orbit does not change over time, and the orbit is not circular. The below shows the edot as a function of time in orbits, where the eccentricity is stable at 0.4.
+For eccentricities that have positive edot, the orbit is getting more eccentric over time, and for eccentricities that have negative edot, the orbit is getting more circular over time.
+
+\begin{figure}[h]
+    \includegraphics[width=6cm]{stable_ecc.png}
+    \centering
+    \end{figure}
+
+
+\subsection{Minidisks}
+Minidisks contain the amount of gas gravitationally bound to only one black hole in a binary system. The exact radius of a minidisk can be difficult to determine. In this work, we use the minimal mean density as the cutoff.
+At small radii, the major behavior of the accretion disk is governed by minidisks around individual black holes. Below is one of the density
+ plots of surface density for 0.4 eccentricity, 
+ \begin{figure}[h]
+    \includegraphics[width=6cm]{plot_eq_0927_log_rho.png}
+    \centering
+    \end{figure}
+ 
+Plot below is the top plot zoomed in 10 times to show the minidisks.
+
+\begin{figure}[h]
+    \includegraphics[width=6cm]{zoom_in.png}
+    \centering
+    \end{figure}
+
+The plot below shows the total mass of one of the minidisks in different 
+eccentric runs averaged every 100 orbits and then averaged into one value. 
+It only plots values in the range of 400th to 500th orbits. 
+The total mass at 0.2 eccentricity is smaller than other eccentricities at this time step, 
+potentially due to a large time derivative of eccentricity. This indicates that we need to increase the total time for each run so that they can reach steady state before stablizing the total mass.
+
+\begin{figure}[h]
+    \includegraphics[width=6cm]{minidisk.png}
+    \centering
+    \end{figure}
+
+
+\section{Future Work}
+We also attempted to look at the trend of the total mass of each minidisk as a function of eccentricity, and we found that there is some periodicity of the mass oscillation
+per about 100 orbits. We used Fourier transform to for the biggest period for each eccentricity, but we did not see any consistency among all eccentricities. Below, the plot
+shows somewhere around 0.5 frequency, there is overlap, but it can also be caused by the natural rotation of the cavity. 
+
+\begin{figure}[h]
+    \includegraphics[width=6cm]{frequency.png}
+    \centering
+    \end{figure}
+
+Some other directions of future works are:
+
+\begin{enumerate}
+    \item Investigating if unequal masses of the binary black holes will affect the stable eccentricity point.
+    \item Does the total mass of the minidisks depends on other factor such as viscosity or adiabatic index?
+    \item Investigating the effects of the total time of the simulation on the total mass of the minidisks.
+    \item What other cooling machanisms can we use to cool the disk instead of setting it to isothermal?
+\end{enumerate}
 
 \end{document}
